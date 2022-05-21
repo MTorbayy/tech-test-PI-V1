@@ -11,7 +11,6 @@ class APIManager extends Model  {
         $stmt->execute();
         $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        // echo $rooms;
         return $rooms;
     }
 }

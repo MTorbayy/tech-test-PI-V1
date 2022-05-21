@@ -13,7 +13,6 @@ class APIController {
 
     public function getRoomsByMonth($monthNumber) {
         $roomsByMonth = $this->apiManager->getDBRooms($monthNumber);
-        echo "Envoi des infos sur les rooms pour le mois spécifié : ".$monthNumber;
 
         Model::sendJSON($roomsByMonth);
     }
