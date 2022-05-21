@@ -1,6 +1,7 @@
 <?php
 
 require_once("models/front/API.manager.php");
+require_once("models/Model.php");
 
 class APIController {
 
@@ -11,9 +12,9 @@ class APIController {
     }
 
     public function getRoomsByMonth($monthNumber) {
-        $rooms = $this->apiManager->getDBRooms();
+        $roomsByMonth = $this->apiManager->getDBRooms($monthNumber);
         echo "Envoi des infos sur les rooms pour le mois spécifié : ".$monthNumber;
 
-        print_r($rooms);
+        Model::sendJSON($roomsByMonth);
     }
 }
