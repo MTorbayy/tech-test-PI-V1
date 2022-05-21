@@ -51,6 +51,14 @@ export const data = {
   ],
 };
 
+// export default function BarChart() {
+//   return <Bar options={options} data={data} />;
+// }
+
 export default function BarChart() {
-  return <Bar options={options} data={data} />;
+  return (
+    <div className='chart-container'>
+      <Bar options={options} data={data} />
+    </div>
+  )
 }
