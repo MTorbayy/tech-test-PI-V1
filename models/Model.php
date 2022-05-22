@@ -7,6 +7,11 @@ abstract class Model {
     private const USER_NAME = "root";
     private const PWD = "";
 
+    // private const HOST_NAME = "xtremfhmarie.mysql.db";
+    // private const DB_NAME = "xtremfhmarie";
+    // private const USER_NAME = "xtremfhmarie";
+    // private const PWD = "SecureBDD1";
+
     private static $pdo;
 
     private static function setDB() {
@@ -14,10 +19,13 @@ abstract class Model {
     }
 
     protected function getDB() {
+
+        
         if(self::$pdo === null) {
             self::setDB();
         }
         return self::$pdo;
+
     }
 
     public static function sendJSON($info) {
