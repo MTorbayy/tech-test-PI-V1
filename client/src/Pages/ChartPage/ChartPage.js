@@ -67,7 +67,7 @@ export default function ChartPage() {
       </form>
 
       <div className="dashboard-container">
-        <BarChart />
+        <BarChart data={roomsByMonth} />
       </div>
 
       {/* {roomsByMonth.map(item => {
