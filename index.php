@@ -1,7 +1,6 @@
 <?php
     define("URL", str_replace("index.php","",(isset($_SERVER['HTTPS']) ? "https" : "http").
     "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
-    // require_once("myPDO.php");
 
     require_once("controllers/front/API.controller.php");
     $apiController = new APIController();
@@ -12,12 +11,6 @@
             throw new Exception("La page n'existe pas");
         } else {
             $url = explode("/", filter_var($_GET['page'],FILTER_SANITIZE_URL)); //récupération des infos de l'url
-
-            //Tests 
-            // echo "<pre>"; //Pour afficher correctement le tableau
-            // print_r($url);
-            // echo "</pre>";
-            // echo "La page demandé est : ".$_GET['page'];
 
             if(empty($url[0]) || empty($url[1])) {
                 throw new Exception("La page n'existe pas");

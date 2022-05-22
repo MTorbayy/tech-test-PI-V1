@@ -1,7 +1,6 @@
 .global-container {
-    margin-left:  170px;
     position: absolute;
-    width: calc(100% - 170px);
+    width: 100%;
 }
 
 @media screen and (max-width: 870px) {
@@ -45,7 +44,7 @@ select {
 }
 .chart-container {
     position: relative; 
-    width: 40%;
+    width: 70%;
     margin: 20px;
 }
 

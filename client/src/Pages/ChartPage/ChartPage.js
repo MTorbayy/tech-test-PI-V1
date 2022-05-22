@@ -2,7 +2,6 @@ import React from 'react'
 import "./ChartPage.css"
 import {useEffect, useState} from "react"
 import axios from "axios"
-import {v4 as uuidv4} from 'uuid'
 import BarChart from '../../Components/Charts/BarChart'
 
 export default function ChartPage() {
@@ -51,8 +50,6 @@ export default function ChartPage() {
 
     setMonthName(monthNames[el.target.value - 1])
   }
-
-  console.log(monthNumber)
   
   return (
     <div className='global-container'>
