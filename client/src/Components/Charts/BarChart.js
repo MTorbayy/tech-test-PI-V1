@@ -97,7 +97,9 @@ export default function BarChart(props) {
 
   return (
     <div className='chart-container'>
-      <Bar options={options} data={data} />
+      <Bar 
+      redraw={true}
+      options={options} data={data} />
     </div>
   )
 }

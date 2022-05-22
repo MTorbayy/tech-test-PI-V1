@@ -8,6 +8,8 @@ import BarChart from '../../Components/Charts/BarChart'
 export default function ChartPage() {
 
   const [roomsByMonth, setRoomsByMonth] = useState([1])
+  const [monthNumber, setMonthNumber] = useState(1)
+  const [monthName, setMonthName] = useState('January')
 
   let monthNames = ["January", "February", "March", "April", "May", "June", "Jully", "August", "September", "October", "November", "December"]
 
@@ -15,7 +17,7 @@ export default function ChartPage() {
 
   useEffect(() => {
 
-    axios.get(`http://localhost:80/test-tech-pi/front/rooms/1`)
+    axios.get(`http://localhost:80/test-tech-pi/front/rooms/${monthNumber}`)
     .then(response => {
       
       let roomsByMonthArray = []
@@ -42,15 +44,23 @@ export default function ChartPage() {
       
     })
 
-  }, [])
+  }, [monthNumber])
+
+  const changeMonth = el => {
+    setMonthNumber(el.target.value)
+
+    setMonthName(monthNames[el.target.value - 1])
+  }
+
+  console.log(monthNumber)
   
   return (
     <div className='global-container'>
-      <h1>Statistics of the month : January</h1>
+      <h1>Statistics of the month : {monthName}</h1>
 
       <form>
         <label htmlFor="month">Choose a month</label>
-        <select id="month">
+        <select onChange={changeMonth} id="month">
           <option value="1">January</option>
           <option value="2">February</option>
           <option value="3">March</option>
@@ -69,10 +79,6 @@ export default function ChartPage() {
       <div className="dashboard-container">
         <BarChart data={roomsByMonth} />
       </div>
-
-      {/* {roomsByMonth.map(item => {
-        return <p key={uuidv4()}>Date : {item.stay_date}, Nombre de nuitées réservées : {item.room_nights}, Revenus : {item.room_revenues}</p>
-      })} */}
     </div>
   );
 }
